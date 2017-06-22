@@ -1,16 +1,19 @@
 import React from 'react';
+import {Link} from 'react-router';
 import './Header.css';
 
 
 const MenuItem = ({active, children, to}) =>  (
-  <div className="menu-item">
+  <Link to={to} className={`menu-item ${active ? 'active': ''}`}>
     {children}
-  </div>
+  </Link>
 )
 
 
 class Header extends React.Component{
+
   render(){
+
     return(
       <div>
         <div className="logo">

@@ -5,7 +5,9 @@ import Header from './components/Header';
 import Home from './containers/Home';
 
 class App extends Component {
+
   render() {
+    console.log(this.props);
     return (
       <div>
         <Header/>
