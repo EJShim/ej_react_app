@@ -1,36 +1,25 @@
-.logo{
-  height:3.5rem;
-  background-color:#212529;
-  width:100vw;
-  line-height:3.5rem;
+.header{  
+  display: table;
+  background: #3502FF;
+  table-layout: fixed;
+  width:100%;
+}
+
+.item{
+  text-align: center;
+  padding-top:1rem;
+  padding-bottom:1rem;
+  display:table-cell;
   color:white;
-  font-size:1.5rem;
-  font-weight:bold;
-  text-align:center;
+  text-decoration: none;
+  font-size: 1.1rem;
 }
 
-.menu{
-  background-color: #343a40;
-  height:3.5rem;
+.item:hover{
+  background: #FF000d;
 }
 
-
-.menu-item{
-  display:inline-block;
-  color:white;
-  font-size:1rem;
-  line-height:3.5rem;
-  width:33.3333%;
-  text-align:center;
-  cursor:pointer;
-  transition: background-color 0.3s;
-  text-decoration:none;
-}
-
-.menu-item:hover{
-  background-color:#495057;
-}
-
-.menu-item:active, .menu-item.active{
-  background-color: #0000FF;
+.item:active{
+  background: #F93A22;
+  color: black;
 }
