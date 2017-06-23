@@ -1,4 +1,4 @@
-.header{  
+.header{
   display: table;
   background: #3502FF;
   table-layout: fixed;
@@ -16,10 +16,10 @@
 }
 
 .item:hover{
-  background: #FF000d;
+  background: #0A008D;
 }
 
-.item:active{
+.item:active, .item.active{
   background: #F93A22;
   color: black;
 }

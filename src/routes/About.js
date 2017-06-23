@@ -43,7 +43,7 @@ class Renderer extends React.Component{
     this.renderer.setSize( window.innerWidth, window.innerHeight );
 
     this.setState({init:true});
-    this.animate();
+    //this.animate();
   }
 
   animate() {
@@ -60,7 +60,7 @@ class Renderer extends React.Component{
   }
 
 
-  render(){    
+  render(){
     return(
       <div></div>
     )
