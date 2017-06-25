@@ -1,19 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Buttons from '../components/Buttons';
+import CounterListContainer from './CounterListContainer';
 
-import Counter from '../components/Counter';
-import CounterContainer from './CounterContainer';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
+import { getRandomColor } from '../utils';
 
-class App extends React.Component{
-  render(){
-    return(
-      <div>
-        <CounterContainer />
-
-      </div>
-
-    );
-  }
+class App extends Component {
+    render() {
+        const { onCreate, onRemove } = this.props;
+        return (
+            <div className="App">
+                <Buttons
+                    onCreate={onCreate}
+                    onRemove={onRemove}
+                />
+                <CounterListContainer/>
+            </div>
+        );
+    }
 }
 
+// 액션함수 준비
+const mapToDispatch = (dispatch) => ({
+    onCreate: () => dispatch(actions.create(getRandomColor())),
+    onRemove: (index) => dispatch(actions.remove(index))
+});
+
+App = connect(null, mapToDispatch)(App);
+
+// 리덕스에 연결을 시키고 내보낸다
 export default App;

@@ -14,13 +14,14 @@ import App from './containers/App';
 import './index.css';
 
 //Create Store
-const store = createStore(reducers);
+const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 
 class ReduxCounter extends React.Component{
   render(){
     return(
       <div>
-        <Provider store = {store}>          
+        <Provider store = {store}>
           <App />
         </Provider>
       </div>
