@@ -12,6 +12,7 @@ class Header extends React.Component{
         <NavLink exact to="/" className="item">홈</NavLink>
         <NavLink to="/about" className="item">3D View</NavLink>
         <NavLink to="/redux" className="item">Redux Example</NavLink>
+        <NavLink to="/counter" className="item">Redux Counter</NavLink>
 
       </div>
     )

@@ -16,6 +16,8 @@ const counter = (state=counterInitialState, action) =>{
 
     case SET_DIFF: //Set State.diff = action.diff
       return Object.assign({}, state, {diff:action.diff});
+    default:
+      return state
 
   }
 };
