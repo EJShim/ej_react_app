@@ -36,14 +36,6 @@ class App extends React.Component{
   render(){
     const {visible} = this.state
 
-    let bodyStyle = {};
-    if(visible){
-        bodyStyle = {marginLeft:150};
-    }else{
-       bodyStyle = {marginLeft:0};
-    }
-
-
 
 
     return(
@@ -55,10 +47,14 @@ class App extends React.Component{
             <Menu.Item onClick={this.toggleVisibility.bind(this)} >
               <Icon name="sidebar" />Menu
             </Menu.Item>
+
+            <Menu.Item>
+              <Link to="/"> <Icon name="home"/> </Link>
+            </Menu.Item>
           </Menu>
 
           <Sidebar.Pushable as={Segment}>
-           <Sidebar as={Menu} animation='overlay' width='thin' visible={visible} icon='labeled' vertical inverted>
+           <Sidebar as={Menu} animation='scale down' width='thin' visible={visible} icon='labeled' vertical inverted>
             <Link to="/">
              <Menu.Item name='home'>
                <Icon name='home' />
@@ -99,7 +95,7 @@ class App extends React.Component{
            <Sidebar.Pusher>
              <Segment basic>
 
-               <div style={bodyStyle} className = 'mainWindow'>
+               <div className = 'mainWindow'>
                  <Route exact path = "/" component = {Home} />
                  <Route path = "/chat" component = {Chat} />
                  <Route path = "/collaboration" component = {Collaboration} />

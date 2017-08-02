@@ -13,8 +13,6 @@ class Home extends React.Component{
 
         <br/>
         <br/>
-        <br/>
-        <br/>
 
         <Container text>
           <Header as='h2'>Home</Header>
