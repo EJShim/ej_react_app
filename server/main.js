@@ -60,6 +60,11 @@ app.use('/', express.static(path.join(__dirname, './../public')));
 //Router
 app.use('/api', api);
 
+/* support client-side routing */
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './../public/index.html'));
+});
+
 
 
 
