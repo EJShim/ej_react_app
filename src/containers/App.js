@@ -36,6 +36,8 @@ class App extends React.Component{
   render(){
     const {visible} = this.state
 
+    const divStyle = {"height":"100%"};
+
 
 
     return(

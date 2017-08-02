@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Container} from 'semantic-ui-react';
 
 
 class Collaboration extends React.Component{
@@ -25,10 +26,11 @@ class Collaboration extends React.Component{
   }
 
   render(){
+    const style={"height":"calc(100vh - 86px)", backgroundColor:"#FF0000"}
     return(
-      <div>
+      <Container fluid style={style}>
         Full-Screen Test
-      </div>
+      </Container>
     );
   }
 }

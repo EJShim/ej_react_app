@@ -1,3 +1,7 @@
-/*.mainWindow {  
-  margin-left: 150px;
-}*/
+html, body, #root {
+  height: 100%;
+}
+
+ /*#root>div{
+   height:90%;
+ }*/

@@ -22315,6 +22315,8 @@
 	      var visible = this.state.visible;
 
 
+	      var divStyle = { "height": "100%" };
+
 	      return _react2.default.createElement(
 	        _reactRedux.Provider,
 	        { store: store },
@@ -22350,7 +22352,7 @@
 	              { as: _semanticUiReact.Segment },
 	              _react2.default.createElement(
 	                _semanticUiReact.Sidebar,
-	                { as: _semanticUiReact.Menu, animation: 'push', width: 'thin', visible: visible, icon: 'labeled', vertical: true, inverted: true },
+	                { as: _semanticUiReact.Menu, animation: 'scale down', width: 'thin', visible: visible, icon: 'labeled', vertical: true, inverted: true },
 	                _react2.default.createElement(
 	                  _reactRouterDom.Link,
 	                  { to: '/' },
@@ -69787,6 +69789,8 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _semanticUiReact = __webpack_require__(266);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69826,9 +69830,10 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var style = { "height": "calc(100vh - 86px)", backgroundColor: "#FF0000" };
 	      return _react2.default.createElement(
-	        'div',
-	        null,
+	        _semanticUiReact.Container,
+	        { fluid: true, style: style },
 	        'Full-Screen Test'
 	      );
 	    }
@@ -69879,7 +69884,7 @@
 
 
 	// module
-	exports.push([module.id, "/*.mainWindow {  \n  margin-left: 150px;\n}*/\n", ""]);
+	exports.push([module.id, "html, body, #root {\n  height: 100%;\n}\n\n /*#root>div{\n   height:90%;\n }*/\n", ""]);
 
 	// exports
 
