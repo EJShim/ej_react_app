@@ -1,36 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Container} from 'semantic-ui-react';
+import { Route} from 'react-router-dom';
+import Memo from './Memo';
 
 
 class Collaboration extends React.Component{
   constructor(props){
     super(props);
 
-    this.state = {
-      width : 100,
-      height : 100
-    };
-  }
-
-  updateDimensions(){
-    let w = window;
-    let d = document;
-    let documentElement = d.documentElement;
-    let body = d.getElementsByTagName('body')[0];
-
-    let width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
-    let height = w.innerHeight|| documentElement.clientHeight|| body.clientHeight;
-
-    this.setState({width: width, height: height});
+    console.log(props.match.url);
   }
 
   render(){
     const style={"height":"calc(100vh - 86px)", backgroundColor:"#FF0000"}
     return(
-      <Container fluid style={style}>
-        Full-Screen Test
-      </Container>
+      <div>
+        <Container fluid style={style}>
+          Full-Screen Test
+        </Container>        
+        <Route path = {`${this.props.match.url}/signup`} component = {Memo} />"  
+      </div>
     );
   }
 }

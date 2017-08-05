@@ -10,7 +10,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Container, Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react'
 
 //Container Modules
-import {Home, Chat, Memo, Portfolio, Collaboration} from 'containers';
+import {Home, Chat, Memo, Portfolio, Collaboration, Videos} from 'containers';
 
 // Global State
 const store = createStore(reducers, applyMiddleware(thunk));
@@ -34,9 +34,8 @@ class App extends React.Component{
 
 
   render(){
+    
     const {visible} = this.state
-
-    const divStyle = {"height":"100%"};
 
 
 
@@ -56,7 +55,7 @@ class App extends React.Component{
           </Menu>
 
           <Sidebar.Pushable as={Segment}>
-           <Sidebar as={Menu} animation='scale down' width='thin' visible={visible} icon='labeled' vertical inverted>
+           <Sidebar as={Menu} animation='push' width='thin' visible={visible} icon='labeled' vertical inverted>
             <Link to="/">
              <Menu.Item name='home'>
                <Icon name='home' />
@@ -91,6 +90,13 @@ class App extends React.Component{
                Portfolio
              </Menu.Item>
              </Link>
+
+             <Link to="/videos">
+             <Menu.Item name='videos'>
+               <Icon name='home' />
+               Videos
+             </Menu.Item>
+             </Link>
            </Sidebar>
 
 
@@ -103,6 +109,7 @@ class App extends React.Component{
                  <Route path = "/collaboration" component = {Collaboration} />
                  <Route path = "/memo" component = {Memo} />
                  <Route path = "/portfolio" component = {Portfolio} />
+                 <Route path = "/videos" component={Videos}/>
                </div>
 
              </Segment>
