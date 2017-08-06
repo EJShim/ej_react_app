@@ -1,11 +1,22 @@
-// process.chdir(path.join(process.cwd(), '..'));
+import express from 'express';
+import path from 'path';
+
+import WebpackDevServer from 'webpack-dev-server';
+import webpack from 'webpack';
+
+import morgan from 'morgan'; // HTTP REQUEST LOGGER
+import bodyParser from 'body-parser'; // PARSE HTML BODY
+import mongoose from 'mongoose';
+import session from 'express-session';
+
+
 
 var http = require('http');
 
 var server = http.createServer(function(request, response) {
 
     response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("Hello World!");
+    response.end("Hello Shit!");
 
 });
 
@@ -15,16 +26,6 @@ server.listen(port);
 console.log("Server running at http://localhost:%d", port);
 
 
-// import express from 'express';
-// import path from 'path';
-
-// import WebpackDevServer from 'webpack-dev-server';
-// import webpack from 'webpack';
-
-// import morgan from 'morgan'; // HTTP REQUEST LOGGER
-// import bodyParser from 'body-parser'; // PARSE HTML BODY
-// import mongoose from 'mongoose';
-// import session from 'express-session';
 
 
 // //Router
