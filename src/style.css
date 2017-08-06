@@ -2,6 +2,6 @@ html, body, #root {
   height: 100%;
 }
 
- /*#root>div{
-   height:90%;
- }*/
+ #root>div{
+  min-height:100%;
+ }
