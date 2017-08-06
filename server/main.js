@@ -40,19 +40,19 @@ const port = process.env.PORT || 1337;
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-/* mongodb connection */
-const db = mongoose.connection;
-db.on('error', console.error);
-db.once('open', () => { console.log('Connected to mongodb server'); });
-// mongoose.connect('mongodb://username:password@host:port/database=');
-mongoose.connect('mongodb://localhost/codelab');
+// /* mongodb connection */
+// const db = mongoose.connection;
+// db.on('error', console.error);
+// db.once('open', () => { console.log('Connected to mongodb server'); });
+// // mongoose.connect('mongodb://username:password@host:port/database=');
+// mongoose.connect('mongodb://localhost/codelab');
 
-/* use session */
-app.use(session({
-    secret: 'CodeLab1$1$234',
-    resave: false,
-    saveUninitialized: true
-}));
+// /* use session */
+// app.use(session({
+//     secret: 'CodeLab1$1$234',
+//     resave: false,
+//     saveUninitialized: true
+// }));
 
 
 //Main Page
