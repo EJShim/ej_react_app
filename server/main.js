@@ -1,8 +1,6 @@
 import express from 'express';
 import path from 'path';
 
-// import WebpackDevServer from 'webpack-dev-server';
-// import webpack from 'webpack';
 
 import morgan from 'morgan'; // HTTP REQUEST LOGGER
 import bodyParser from 'body-parser'; // PARSE HTML BODY
@@ -13,23 +11,10 @@ import api from './routes';
 
 
 
-// var http = require('http');
 
-// var server = http.createServer(function(request, response) {
-
-//     response.writeHead(200, {"Content-Type": "text/plain"});
-//     response.end("Hello Shit!");
-
-// });
-
-// var port = process.env.PORT || 1337;
-// server.listen(port);
-
-// console.log("Server running at http://localhost:%d", port);
-
-
-
-
+//Development!!
+// import WebpackDevServer from 'webpack-dev-server';
+// import webpack from 'webpack';
 
 // const devPort = 4000;
 // /*
@@ -53,23 +38,23 @@ import api from './routes';
 const app = express();
 const port = process.env.PORT || 1337;
 
-// //MongoDB
-// // app.use(morgan('dev'));
-// // app.use(bodyParser.json());
+// MongoDB
+app.use(morgan('dev'));
+app.use(bodyParser.json());
 
-// // /* mongodb connection */
-// // const db = mongoose.connection;
-// // db.on('error', console.error);
-// // db.once('open', () => { console.log('Connected to mongodb server'); });
-// // // mongoose.connect('mongodb://username:password@host:port/database=');
-// // mongoose.connect('mongodb://localhost/codelab');
+/* mongodb connection */
+const db = mongoose.connection;
+db.on('error', console.error);
+db.once('open', () => { console.log('Connected to mongodb server'); });
+// mongoose.connect('mongodb://username:password@host:port/database=');
+mongoose.connect('mongodb://localhost/codelab');
 
-// // /* use session */
-// // app.use(session({
-// //     secret: 'CodeLab1$1$234',
-// //     resave: false,
-// //     saveUninitialized: true
-// // }));
+/* use session */
+app.use(session({
+    secret: 'CodeLab1$1$234',
+    resave: false,
+    saveUninitialized: true
+}));
 
 
 //Main Page
