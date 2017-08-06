@@ -5,12 +5,12 @@ import { Provider } from 'react-redux';
 import reducers from 'reducers';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
-
 //UI Modules
 import { Container, Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react'
-
 //Container Modules
 import {Home, Chat, Memo, Portfolio, Collaboration, Videos} from 'containers';
+
+import styles from './App.css';
 
 // Global State
 const store = createStore(reducers, applyMiddleware(thunk));
@@ -35,8 +35,7 @@ class App extends React.Component{
 
   render(){
     
-    const {visible} = this.state
-
+    const {visible} = this.state    
 
 
     return(
@@ -54,7 +53,7 @@ class App extends React.Component{
             </Menu.Item>
           </Menu>
 
-          <Sidebar.Pushable as={Segment}>
+          <Sidebar.Pushable as={Segment}   className={styles.view}>
            <Sidebar as={Menu} animation='push' width='thin' visible={visible} icon='labeled' vertical inverted>
             <Link to="/">
              <Menu.Item name='home'>

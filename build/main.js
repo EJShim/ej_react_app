@@ -58,7 +58,7 @@ var app = (0, _express2.default)(); // PARSE HTML BODY
 var port = process.env.PORT || 1337;
 
 // MongoDB
-app.use((0, _morgan2.default)('dev'));
+// app.use(morgan('dev'));
 app.use(_bodyParser2.default.json());
 
 /* mongodb connection */

@@ -1,7 +1,12 @@
-html, body, #root {
-  height: 100%;
+/* html, body {
+   height: 100%; 
 }
 
- #root>div{
+.app{
+  height:100vh;
+}
+
+ /* #root>div{
   min-height:100%;
- }
+  background-color: red;
+ } */

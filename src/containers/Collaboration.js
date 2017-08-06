@@ -15,12 +15,9 @@ class Collaboration extends React.Component{
   render(){
     const style={"height":"calc(100vh - 86px)", backgroundColor:"#FF0000"}
     return(
-      <div>
-        <Container fluid style={style}>
-          Full-Screen Test
-        </Container>        
-        <Route path = {`${this.props.match.url}/signup`} component = {Memo} />"  
+      <div style={style}>       
       </div>
+            
     );
   }
 }

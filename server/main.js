@@ -39,7 +39,7 @@ const app = express();
 const port = process.env.PORT || 1337;
 
 // MongoDB
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 /* mongodb connection */

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Header, Card, Icon, Image, Modal, Embed } from 'semantic-ui-react'
+import { Container, Header, Card, Icon, Image, Modal, Embed,  Dimmer, Loader, Segment } from 'semantic-ui-react'
 import axios from 'axios';
 
 
@@ -11,6 +11,7 @@ class Videos extends React.Component{
         super(props);
 
         this.state = {
+            dataExists: false,
             videoList : []
         }
     }
@@ -23,7 +24,10 @@ class Videos extends React.Component{
         //Use Axios
         axios.get("/api/video") 
             .then(response => {
-                that.setState({videoList : response.data});
+                that.setState({
+                    dataExists:true,
+                    videoList : response.data
+                });
             })
             .catch(error => {
                 console.log(error);
@@ -35,6 +39,12 @@ class Videos extends React.Component{
 
 
     render(){        
+        const pendingItme = (
+                <Dimmer active page>
+                    <Loader> Loading </Loader>
+                </Dimmer>            
+        );
+
         const cardListItem = this.state.videoList.map((video)=>
             <Modal trigger={
                 <Card
@@ -64,7 +74,8 @@ class Videos extends React.Component{
             <Container fluid>
                 <Header as='h2'>Videos</Header>
                  <Card.Group>
-                   {cardListItem}
+                   
+                   {this.state.dataExists ?  cardListItem : pendingItme }
                 </Card.Group>
             </Container>
         );
