@@ -41,7 +41,7 @@ const port = process.env.PORT || 1337;
 
 //MongoDB
 // app.use(morgan('dev'));
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 // /* mongodb connection */
 // const db = mongoose.connection;
@@ -65,9 +65,9 @@ app.use('/', express.static(path.join(__dirname, './../public')));
 app.use('/api', api);
 
 /* support client-side routing */
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './../public/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, './../public/index.html'));
+// });
 
 
 
