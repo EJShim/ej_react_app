@@ -38,7 +38,13 @@ var _routes2 = _interopRequireDefault(_routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// HTTP REQUEST LOGGER
+process.chdir(_path2.default.join(process.cwd(), '..')); // HTTP REQUEST LOGGER
+// PARSE HTML BODY
+
+
+//Router
+
+
 var devPort = 4000;
 
 /*
@@ -58,13 +64,11 @@ var devPort = 4000;
 // }
 
 
-//Router
-// PARSE HTML BODY
 var app = (0, _express2.default)();
 var port = process.env.PORT || 1337;
 
 //MongoDB
-app.use((0, _morgan2.default)('dev'));
+// app.use(morgan('dev'));
 app.use(_bodyParser2.default.json());
 
 // /* mongodb connection */

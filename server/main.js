@@ -1,3 +1,6 @@
+process.chdir(path.join(process.cwd(), '..'));
+
+
 import express from 'express';
 import path from 'path';
 
