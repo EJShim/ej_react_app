@@ -24,18 +24,15 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-var _mongoose = require('mongoose');
-
-var _mongoose2 = _interopRequireDefault(_mongoose);
-
 var _expressSession = require('express-session');
 
 var _expressSession2 = _interopRequireDefault(_expressSession);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// PARSE HTML BODY
-var http = require('http'); // HTTP REQUEST LOGGER
+// HTTP REQUEST LOGGER
+var http = require('http'); // PARSE HTML BODY
+// import mongoose from 'mongoose';
 
 
 var server = http.createServer(function (request, response) {

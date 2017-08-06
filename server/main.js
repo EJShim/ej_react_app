@@ -6,7 +6,7 @@ import webpack from 'webpack';
 
 import morgan from 'morgan'; // HTTP REQUEST LOGGER
 import bodyParser from 'body-parser'; // PARSE HTML BODY
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 import session from 'express-session';
 
 
