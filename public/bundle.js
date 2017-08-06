@@ -70450,15 +70450,6 @@
 	          'div',
 	          { className: _photonMin2.default.window },
 	          _react2.default.createElement(
-	            'header',
-	            { className: cx('toolbar', 'toolbar-header') },
-	            _react2.default.createElement(
-	              'h1',
-	              { className: cx("title") },
-	              'Photon'
-	            )
-	          ),
-	          _react2.default.createElement(
 	            'div',
 	            { className: cx("window-content") },
 	            _react2.default.createElement(

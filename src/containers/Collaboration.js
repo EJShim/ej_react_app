@@ -27,9 +27,9 @@ class Collaboration extends React.Component{
       <div className={styles.app}>  
          <div className={photon.window}>
             
-            <header className={cx('toolbar', 'toolbar-header')}>
-              <h1 className={cx("title")}>Photon</h1>
-            </header>
+             <header className={cx('toolbar', 'toolbar-header')}>
+              <h1 className={cx("title")}>3D App will be implemented here</h1>
+            </header> 
 
             
             <div className={cx("window-content")}>
