@@ -1,70 +1,84 @@
-process.chdir(path.join(process.cwd(), '..'));
+// process.chdir(path.join(process.cwd(), '..'));
+
+var http = require('http');
+
+var server = http.createServer(function(request, response) {
+
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.end("Hello World!");
+
+});
+
+var port = process.env.PORT || 1337;
+server.listen(port);
+
+console.log("Server running at http://localhost:%d", port);
 
 
-import express from 'express';
-import path from 'path';
+// import express from 'express';
+// import path from 'path';
 
-import WebpackDevServer from 'webpack-dev-server';
-import webpack from 'webpack';
+// import WebpackDevServer from 'webpack-dev-server';
+// import webpack from 'webpack';
 
-import morgan from 'morgan'; // HTTP REQUEST LOGGER
-import bodyParser from 'body-parser'; // PARSE HTML BODY
-import mongoose from 'mongoose';
-import session from 'express-session';
-
-
-//Router
-import api from './routes';
-
-const devPort = 4000;
-
-/*
-    Express Codes
-*/
-
-// if(process.env.NODE_ENV == 'development') {
-//     console.log('Server is running on development mode');
-//     const config = require('../webpack.dev.config');
-//     const compiler = webpack(config);
-//     const devServer = new WebpackDevServer(compiler, config.devServer);
-//     devServer.listen(
-//         devPort, () => {
-//             console.log('webpack-dev-server is listening on port', devPort);
-//         }
-//     );
-// }
+// import morgan from 'morgan'; // HTTP REQUEST LOGGER
+// import bodyParser from 'body-parser'; // PARSE HTML BODY
+// import mongoose from 'mongoose';
+// import session from 'express-session';
 
 
+// //Router
+// import api from './routes';
 
-const app = express();
-const port = process.env.PORT || 1337;
+// const devPort = 4000;
 
-//MongoDB
-// app.use(morgan('dev'));
-// app.use(bodyParser.json());
+// /*
+//     Express Codes
+// */
 
-// /* mongodb connection */
-// const db = mongoose.connection;
-// db.on('error', console.error);
-// db.once('open', () => { console.log('Connected to mongodb server'); });
-// // mongoose.connect('mongodb://username:password@host:port/database=');
-// mongoose.connect('mongodb://localhost/codelab');
-
-// /* use session */
-// app.use(session({
-//     secret: 'CodeLab1$1$234',
-//     resave: false,
-//     saveUninitialized: true
-// }));
+// // if(process.env.NODE_ENV == 'development') {
+// //     console.log('Server is running on development mode');
+// //     const config = require('../webpack.dev.config');
+// //     const compiler = webpack(config);
+// //     const devServer = new WebpackDevServer(compiler, config.devServer);
+// //     devServer.listen(
+// //         devPort, () => {
+// //             console.log('webpack-dev-server is listening on port', devPort);
+// //         }
+// //     );
+// // }
 
 
-//Main Page
-app.use('/', express.static(path.join(__dirname, './../public')));
 
-//Router
-app.use('/api', api);
+// const app = express();
+// const port = process.env.PORT || 1337;
 
-/* support client-side routing */
+// //MongoDB
+// // app.use(morgan('dev'));
+// // app.use(bodyParser.json());
+
+// // /* mongodb connection */
+// // const db = mongoose.connection;
+// // db.on('error', console.error);
+// // db.once('open', () => { console.log('Connected to mongodb server'); });
+// // // mongoose.connect('mongodb://username:password@host:port/database=');
+// // mongoose.connect('mongodb://localhost/codelab');
+
+// // /* use session */
+// // app.use(session({
+// //     secret: 'CodeLab1$1$234',
+// //     resave: false,
+// //     saveUninitialized: true
+// // }));
+
+
+// //Main Page
+// app.use('/', express.static(path.join(__dirname, '../public')));
+
+// //Router
+// app.use('/api', api);
+
+// /* support client-side routing */
 // app.get('*', (req, res) => {
 //     res.sendFile(path.resolve(__dirname, './../public/index.html'));
 // });
@@ -72,15 +86,15 @@ app.use('/api', api);
 
 
 
-/* handle error */
-app.use(function(err, req, res, next) {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
+// /* handle error */
+// app.use(function(err, req, res, next) {
+//   console.error(err.stack);
+//   res.status(500).send('Something broke!');
+// });
 
 
 
-///Open Server
-app.listen(port, () => {
-    console.log('Express is listening on port', port);
-});
+// ///Open Server
+// app.listen(port, () => {
+//     console.log('Express is listening on port', port);
+// });

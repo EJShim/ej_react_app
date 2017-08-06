@@ -1,110 +1,96 @@
-'use strict';
+"use strict";
 
-var _express = require('express');
+// process.chdir(path.join(process.cwd(), '..'));
 
-var _express2 = _interopRequireDefault(_express);
+var http = require('http');
 
-var _path = require('path');
+var server = http.createServer(function (request, response) {
 
-var _path2 = _interopRequireDefault(_path);
+    response.writeHead(200, { "Content-Type": "text/plain" });
+    response.end("Hello World!");
+});
 
-var _webpackDevServer = require('webpack-dev-server');
-
-var _webpackDevServer2 = _interopRequireDefault(_webpackDevServer);
-
-var _webpack = require('webpack');
-
-var _webpack2 = _interopRequireDefault(_webpack);
-
-var _morgan = require('morgan');
-
-var _morgan2 = _interopRequireDefault(_morgan);
-
-var _bodyParser = require('body-parser');
-
-var _bodyParser2 = _interopRequireDefault(_bodyParser);
-
-var _mongoose = require('mongoose');
-
-var _mongoose2 = _interopRequireDefault(_mongoose);
-
-var _expressSession = require('express-session');
-
-var _expressSession2 = _interopRequireDefault(_expressSession);
-
-var _routes = require('./routes');
-
-var _routes2 = _interopRequireDefault(_routes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-process.chdir(_path2.default.join(process.cwd(), '..')); // HTTP REQUEST LOGGER
-// PARSE HTML BODY
-
-
-//Router
-
-
-var devPort = 4000;
-
-/*
-    Express Codes
-*/
-
-// if(process.env.NODE_ENV == 'development') {
-//     console.log('Server is running on development mode');
-//     const config = require('../webpack.dev.config');
-//     const compiler = webpack(config);
-//     const devServer = new WebpackDevServer(compiler, config.devServer);
-//     devServer.listen(
-//         devPort, () => {
-//             console.log('webpack-dev-server is listening on port', devPort);
-//         }
-//     );
-// }
-
-
-var app = (0, _express2.default)();
 var port = process.env.PORT || 1337;
+server.listen(port);
 
-//MongoDB
-// app.use(morgan('dev'));
-// app.use(bodyParser.json());
+console.log("Server running at http://localhost:%d", port);
 
-// /* mongodb connection */
-// const db = mongoose.connection;
-// db.on('error', console.error);
-// db.once('open', () => { console.log('Connected to mongodb server'); });
-// // mongoose.connect('mongodb://username:password@host:port/database=');
-// mongoose.connect('mongodb://localhost/codelab');
+// import express from 'express';
+// import path from 'path';
 
-// /* use session */
-// app.use(session({
-//     secret: 'CodeLab1$1$234',
-//     resave: false,
-//     saveUninitialized: true
-// }));
+// import WebpackDevServer from 'webpack-dev-server';
+// import webpack from 'webpack';
+
+// import morgan from 'morgan'; // HTTP REQUEST LOGGER
+// import bodyParser from 'body-parser'; // PARSE HTML BODY
+// import mongoose from 'mongoose';
+// import session from 'express-session';
 
 
-//Main Page
-app.use('/', _express2.default.static(_path2.default.join(__dirname, './../public')));
+// //Router
+// import api from './routes';
 
-//Router
-app.use('/api', _routes2.default);
+// const devPort = 4000;
 
-/* support client-side routing */
+// /*
+//     Express Codes
+// */
+
+// // if(process.env.NODE_ENV == 'development') {
+// //     console.log('Server is running on development mode');
+// //     const config = require('../webpack.dev.config');
+// //     const compiler = webpack(config);
+// //     const devServer = new WebpackDevServer(compiler, config.devServer);
+// //     devServer.listen(
+// //         devPort, () => {
+// //             console.log('webpack-dev-server is listening on port', devPort);
+// //         }
+// //     );
+// // }
+
+
+// const app = express();
+// const port = process.env.PORT || 1337;
+
+// //MongoDB
+// // app.use(morgan('dev'));
+// // app.use(bodyParser.json());
+
+// // /* mongodb connection */
+// // const db = mongoose.connection;
+// // db.on('error', console.error);
+// // db.once('open', () => { console.log('Connected to mongodb server'); });
+// // // mongoose.connect('mongodb://username:password@host:port/database=');
+// // mongoose.connect('mongodb://localhost/codelab');
+
+// // /* use session */
+// // app.use(session({
+// //     secret: 'CodeLab1$1$234',
+// //     resave: false,
+// //     saveUninitialized: true
+// // }));
+
+
+// //Main Page
+// app.use('/', express.static(path.join(__dirname, '../public')));
+
+// //Router
+// app.use('/api', api);
+
+// /* support client-side routing */
 // app.get('*', (req, res) => {
 //     res.sendFile(path.resolve(__dirname, './../public/index.html'));
 // });
 
 
-/* handle error */
-app.use(function (err, req, res, next) {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-});
+// /* handle error */
+// app.use(function(err, req, res, next) {
+//   console.error(err.stack);
+//   res.status(500).send('Something broke!');
+// });
 
-///Open Server
-app.listen(port, function () {
-    console.log('Express is listening on port', port);
-});
+
+// ///Open Server
+// app.listen(port, () => {
+//     console.log('Express is listening on port', port);
+// });
