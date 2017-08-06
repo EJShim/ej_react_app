@@ -34,7 +34,7 @@ if(process.env.NODE_ENV == 'development') {
 
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 1337;
 
 //MongoDB
 app.use(morgan('dev'));
