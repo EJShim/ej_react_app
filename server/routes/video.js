@@ -1,7 +1,6 @@
 import express from 'express';
 import request from 'request';
 import cheerio from 'cheerio';
-import Spooky from 'spooky';
 
 const router = express.Router();
 

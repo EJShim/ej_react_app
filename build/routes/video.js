@@ -16,10 +16,6 @@ var _cheerio = require('cheerio');
 
 var _cheerio2 = _interopRequireDefault(_cheerio);
 
-var _spooky = require('spooky');
-
-var _spooky2 = _interopRequireDefault(_spooky);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = _express2.default.Router();

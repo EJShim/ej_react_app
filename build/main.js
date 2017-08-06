@@ -64,21 +64,20 @@ var port = process.env.PORT || 1337;
 app.use((0, _morgan2.default)('dev'));
 app.use(_bodyParser2.default.json());
 
-/* mongodb connection */
-var db = _mongoose2.default.connection;
-db.on('error', console.error);
-db.once('open', function () {
-    console.log('Connected to mongodb server');
-});
-// mongoose.connect('mongodb://username:password@host:port/database=');
-_mongoose2.default.connect('mongodb://localhost/codelab');
+// /* mongodb connection */
+// const db = mongoose.connection;
+// db.on('error', console.error);
+// db.once('open', () => { console.log('Connected to mongodb server'); });
+// // mongoose.connect('mongodb://username:password@host:port/database=');
+// mongoose.connect('mongodb://localhost/codelab');
 
-/* use session */
-app.use((0, _expressSession2.default)({
-    secret: 'CodeLab1$1$234',
-    resave: false,
-    saveUninitialized: true
-}));
+// /* use session */
+// app.use(session({
+//     secret: 'CodeLab1$1$234',
+//     resave: false,
+//     saveUninitialized: true
+// }));
+
 
 //Main Page
 app.use('/', _express2.default.static(_path2.default.join(__dirname, './../public')));
