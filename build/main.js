@@ -1,18 +1,39 @@
-"use strict";
+'use strict';
 
-// import express from 'express';
-// import path from 'path';
+var _express = require('express');
+
+var _express2 = _interopRequireDefault(_express);
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _morgan = require('morgan');
+
+var _morgan2 = _interopRequireDefault(_morgan);
+
+var _bodyParser = require('body-parser');
+
+var _bodyParser2 = _interopRequireDefault(_bodyParser);
+
+var _mongoose = require('mongoose');
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+var _expressSession = require('express-session');
+
+var _expressSession2 = _interopRequireDefault(_expressSession);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// PARSE HTML BODY
+
 
 // import WebpackDevServer from 'webpack-dev-server';
 // import webpack from 'webpack';
 
-// import morgan from 'morgan'; // HTTP REQUEST LOGGER
-// import bodyParser from 'body-parser'; // PARSE HTML BODY
-// import mongoose from 'mongoose';
-// import session from 'express-session';
+var http = require('http'); // HTTP REQUEST LOGGER
 
-
-var http = require('http');
 
 var server = http.createServer(function (request, response) {
 
