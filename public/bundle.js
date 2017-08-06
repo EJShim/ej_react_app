@@ -69871,6 +69871,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouterDom = __webpack_require__(187);
+
 	var _semanticUiReact = __webpack_require__(266);
 
 	var _axios = __webpack_require__(939);
@@ -69905,17 +69907,51 @@
 
 	            var that = this;
 
+	            //Use Axios
 	            _axios2.default.get("/api/video").then(function (response) {
 	                that.setState({ videoList: response.data });
 	            }).catch(function (error) {
 	                console.log(error);
 	            });
+
+	            //Use Youtube API
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var videoListItem = this.state.videoList.map(function (video) {
-	                return _react2.default.createElement('iframe', { width: '300', height: '215', src: video, frameborder: '0', allowfullscreen: true });
+	            var cardListItem = this.state.videoList.map(function (video) {
+	                return _react2.default.createElement(
+	                    _semanticUiReact.Modal,
+	                    { trigger: _react2.default.createElement(_semanticUiReact.Card, {
+	                            image: video.image,
+	                            header: video.title,
+	                            meta: 'video',
+	                            description: 'Youtube'
+	                        }) },
+	                    _react2.default.createElement(
+	                        _semanticUiReact.Modal.Header,
+	                        null,
+	                        video.title
+	                    ),
+	                    _react2.default.createElement(
+	                        _semanticUiReact.Modal.Content,
+	                        { children: true },
+	                        _react2.default.createElement(_semanticUiReact.Embed, {
+	                            id: video.id,
+	                            placeholder: video.image,
+	                            source: 'youtube'
+	                        }),
+	                        _react2.default.createElement(
+	                            _semanticUiReact.Modal.Description,
+	                            null,
+	                            _react2.default.createElement(
+	                                _semanticUiReact.Header,
+	                                null,
+	                                video.title
+	                            )
+	                        )
+	                    )
+	                );
 	            });
 
 	            return _react2.default.createElement(
@@ -69926,7 +69962,11 @@
 	                    { as: 'h2' },
 	                    'Videos'
 	                ),
-	                videoListItem
+	                _react2.default.createElement(
+	                    _semanticUiReact.Card.Group,
+	                    null,
+	                    cardListItem
+	                )
 	            );
 	        }
 	    }]);
@@ -71505,7 +71545,7 @@
 
 
 	// module
-	exports.push([module.id, "html, body, #style__root___2q-Vi {\n  height: 100%;\n}\n\n /*#root>div{\n   height:90%;\n }*/\n", ""]);
+	exports.push([module.id, "html, body, #style__root___2q-Vi {\n  height: 100%;\n}\n\n #style__root___2q-Vi>div{\n  min-height:100%;\n }\n", ""]);
 
 	// exports
 	exports.locals = {
