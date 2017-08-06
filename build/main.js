@@ -24,33 +24,28 @@ var _expressSession = require('express-session');
 
 var _expressSession2 = _interopRequireDefault(_expressSession);
 
+var _routes = require('./routes');
+
+var _routes2 = _interopRequireDefault(_routes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// PARSE HTML BODY
+// var http = require('http');
 
+// var server = http.createServer(function(request, response) {
 
-// import WebpackDevServer from 'webpack-dev-server';
-// import webpack from 'webpack';
+//     response.writeHead(200, {"Content-Type": "text/plain"});
+//     response.end("Hello Shit!");
 
-var http = require('http'); // HTTP REQUEST LOGGER
+// });
 
+// var port = process.env.PORT || 1337;
+// server.listen(port);
 
-var server = http.createServer(function (request, response) {
+// console.log("Server running at http://localhost:%d", port);
 
-    response.writeHead(200, { "Content-Type": "text/plain" });
-    response.end("Hello Shit!");
-});
-
-var port = process.env.PORT || 1337;
-server.listen(port);
-
-console.log("Server running at http://localhost:%d", port);
-
-// //Router
-// import api from './routes';
 
 // const devPort = 4000;
-
 // /*
 //     Express Codes
 // */
@@ -68,8 +63,14 @@ console.log("Server running at http://localhost:%d", port);
 // // }
 
 
-// const app = express();
-// const port = process.env.PORT || 1337;
+// HTTP REQUEST LOGGER
+var app = (0, _express2.default)(); // PARSE HTML BODY
+
+
+// import WebpackDevServer from 'webpack-dev-server';
+// import webpack from 'webpack';
+
+var port = process.env.PORT || 1337;
 
 // //MongoDB
 // // app.use(morgan('dev'));
@@ -90,26 +91,24 @@ console.log("Server running at http://localhost:%d", port);
 // // }));
 
 
-// //Main Page
-// app.use('/', express.static(path.join(__dirname, '../public')));
+//Main Page
+app.use('/', _express2.default.static(_path2.default.join(__dirname, '../public')));
 
-// //Router
-// app.use('/api', api);
+//Router
+app.use('/api', _routes2.default);
 
-// /* support client-side routing */
-// app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, './../public/index.html'));
-// });
+/* support client-side routing */
+app.get('*', function (req, res) {
+    res.sendFile(_path2.default.resolve(__dirname, './../public/index.html'));
+});
 
+/* handle error */
+app.use(function (err, req, res, next) {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
-// /* handle error */
-// app.use(function(err, req, res, next) {
-//   console.error(err.stack);
-//   res.status(500).send('Something broke!');
-// });
-
-
-// ///Open Server
-// app.listen(port, () => {
-//     console.log('Express is listening on port', port);
-// });
+///Open Server
+app.listen(port, function () {
+    console.log('Express is listening on port', port);
+});
