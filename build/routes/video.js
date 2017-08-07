@@ -33,7 +33,7 @@ router.get('/', function (req, res) {
             var $ = _cheerio2.default.load(html);
 
             var elements = $('.yt-uix-scroller-scroll-unit');
-            console.log("number of elements : ", elements.length);
+            // console.log("number of elements : ", elements.length);
 
             elements.each(function () {
                 var data = {};
