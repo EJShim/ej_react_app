@@ -8,15 +8,10 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
-var _multiparty = require('multiparty');
-
-var _multiparty2 = _interopRequireDefault(_multiparty);
-
-var _fs = require('fs');
-
-var _fs2 = _interopRequireDefault(_fs);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import multiparty from 'multiparty';
+// import fs from 'fs';
 
 var router = _express2.default.Router();
 
@@ -27,58 +22,60 @@ router.get('/', function (req, res) {
     res.json(list);
 });
 
-router.post('/upload', function (req, res) {
+// router.post('/upload', (req, res) => {
 
-    console.log("upload post");
 
-    // res.send("got data");
+//     console.log("upload post");
 
-    var form = new _multiparty2.default.Form();
-    form.on('field', function (name, value) {
-        console.log('normal filed / name = ', name, ', value = ', value);
-    });
+//     // res.send("got data");
 
-    form.on('part', function (part) {
-        var filename = void 0;
-        var size = void 0;
+//     const form = new multiparty.Form();
+//     form.on('field', (name, value) => {
+//         console.log('normal filed / name = ', name, ', value = ', value);
+//     });
 
-        //First Stream?
-        if (part.filename) {
-            filename = part.filename;
-            size = part.byteCount;
+//     form.on('part', (part) => {
+//         let filename;
+//         let size
 
-            console.log("part : ", part);
-            console.log("file name : ", filename);
-            console.log("file size : ", size);
-        } else {
-            part.resume();
-        }
+//         //First Stream?
+//         if (part.filename) {
+//             filename = part.filename;
+//             size = part.byteCount;
 
-        console.log("Write Streaming File : ", filename);
-        var writeStream = _fs2.default.createWriteStream('./DB/' + filename);
-        writeStream.filename = filename;
-        part.pipe(writeStream);
+//             console.log("part : ", part);
+//             console.log("file name : ", filename);
+//             console.log("file size : ", size);
+//         } else {
+//             part.resume();
+//         }
 
-        // part.on('data', (chunk) => {
-        //     console.log("read", chunk.length, 'bytes');
-        // });
+//         console.log("Write Streaming File : ", filename);
+//         let writeStream = fs.createWriteStream('./DB/' + filename);
+//         writeStream.filename = filename;
+//         part.pipe(writeStream);
 
-        part.on('end', function () {
-            console.log(filename, "part reading complete");
-            writeStream.end();
-        });
-    });
+//         // part.on('data', (chunk) => {
+//         //     console.log("read", chunk.length, 'bytes');
+//         // });
 
-    form.on('progress', function (byteRead, byteExcepted) {
-        console.log("Form on Progress Function : ", byteRead / byteExcepted * 100.0, "%");
-    });
+//         part.on('end', () => {
+//             console.log(filename, "part reading complete");
+//             writeStream.end();
+//         });
 
-    form.on('close', function () {
-        console.log("upload complete");
-        res.status(200).send('Upload Complete');
-    });
+//     });
 
-    form.parse(req);
-});
+//     form.on('progress', (byteRead, byteExcepted) => {
+//         console.log("Form on Progress Function : ", (byteRead / byteExcepted) * 100.0, "%");
+//     });
+
+//     form.on('close', () => {
+//         console.log("upload complete");
+//         res.status(200).send('Upload Complete')
+//     });
+
+//     form.parse(req);
+// })
 
 exports.default = router;
